@@ -1,0 +1,5 @@
+bootcamp_jobeet:
+    resource: "@BootcampJobeetBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
