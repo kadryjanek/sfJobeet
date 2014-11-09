@@ -58,10 +58,10 @@ class Job
     /**
      * @Vich\UploadableField(mapping="image", fileNameProperty="logo")
      *
-     * @var File $imageName
+     * @var File $logoFile
      *
      */
-    private $imageName;
+    private $logoFile;
 
     /**
      * @var string
@@ -133,7 +133,22 @@ class Job
     {
         $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $logoFile
+     */
+    public function setLogoFile(File $logoFile = null)
+    {
+        $this->logoFile = $logoFile;
+    }
+
+    /**
+     * @return File
+     */
+    public function getLogoFile()
+    {
+        return $this->logoFile;
+    }
     
     /**
      * Get id
@@ -145,29 +160,6 @@ class Job
         return $this->id;
     }
     
-    /**
-     * Set imageName
-     *
-     * @param File $imageName
-    
-     */
-    public function setImageName(\Symfony\Component\HttpFoundation\File\File $imageName)
-    {
-        $this->imageName = $imageName;
-    
-        return $this;
-    }
-    
-    /**
-     * Get imageName
-     *
-     * @return File
-     */
-    public function getImageName()
-    {
-        return $this->imageName;
-    }
-
     /**
      * Set companyName
      *

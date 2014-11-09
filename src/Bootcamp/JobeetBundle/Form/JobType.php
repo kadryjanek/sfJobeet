@@ -20,7 +20,7 @@ class JobType extends AbstractType
                     Job::TYPE_FULL_TIME => "Etat"
                 ]
             ])
-            ->add('imageName', 'file')
+            ->add('logoFile', 'file')
             ->add('url', 'url')
             ->add('position')
             ->add('location')
