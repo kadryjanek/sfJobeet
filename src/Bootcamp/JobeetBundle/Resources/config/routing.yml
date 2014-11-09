@@ -7,5 +7,5 @@ BootcampJobeetBundle_job:
     prefix:   /admin/job
     
 BootcampJobeetBundle_admin_category:
-	resource: "@BootcampJobeetBundle/Resources/config/routing/category.yml"
-	prefix:   /admin/category
+    resource: "@BootcampJobeetBundle/Resources/config/routing/category.yml"
+    prefix:   /admin/category
