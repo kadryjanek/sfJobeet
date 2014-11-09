@@ -1,0 +1,30 @@
+job:
+    pattern:  /
+    defaults: { _controller: "BootcampJobeetBundle:Job:index" }
+
+job_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BootcampJobeetBundle:Job:show" }
+
+job_new:
+    pattern:  /new
+    defaults: { _controller: "BootcampJobeetBundle:Job:new" }
+
+job_create:
+    pattern:  /create
+    defaults: { _controller: "BootcampJobeetBundle:Job:create" }
+    requirements: { _method: post }
+
+job_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BootcampJobeetBundle:Job:edit" }
+
+job_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BootcampJobeetBundle:Job:update" }
+    requirements: { _method: post|put }
+
+job_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BootcampJobeetBundle:Job:delete" }
+    requirements: { _method: post|delete }

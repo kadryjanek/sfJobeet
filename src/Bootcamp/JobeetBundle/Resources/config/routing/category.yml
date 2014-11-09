@@ -1,0 +1,30 @@
+admin_category:
+    pattern:  /
+    defaults: { _controller: "BootcampJobeetBundle:Category:index" }
+
+admin_category_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BootcampJobeetBundle:Category:show" }
+
+admin_category_new:
+    pattern:  /new
+    defaults: { _controller: "BootcampJobeetBundle:Category:new" }
+
+admin_category_create:
+    pattern:  /create
+    defaults: { _controller: "BootcampJobeetBundle:Category:create" }
+    requirements: { _method: post }
+
+admin_category_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BootcampJobeetBundle:Category:edit" }
+
+admin_category_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BootcampJobeetBundle:Category:update" }
+    requirements: { _method: post|put }
+
+admin_category_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BootcampJobeetBundle:Category:delete" }
+    requirements: { _method: post|delete }
