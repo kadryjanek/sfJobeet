@@ -14,9 +14,7 @@ class CategoryFilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('id', 'filter_number_range')
             ->add('title', 'filter_text')
-            ->add('slug', 'filter_text')
             ->add('description', 'filter_text')
         ;
 

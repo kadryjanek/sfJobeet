@@ -86,9 +86,9 @@ knp_paginator:
 vich_uploader:
     db_driver: orm
     mappings:
-        mems_image:
-            uri_prefix:         uploads/mems
-            upload_destination: %kernel.root_dir%/../web/uploads/mems
+        image:
+            uri_prefix:         uploads
+            upload_destination: %kernel.root_dir%/../web/uploads
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true

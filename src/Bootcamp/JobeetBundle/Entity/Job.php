@@ -4,15 +4,26 @@ namespace Bootcamp\JobeetBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 /**
  * Job
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Job
 {
+    const TYPE_FULL_TIME = 1;
+    const TYPE_FREELANCE = 2;
+    
+    const HOW_TO_APPLY_BY_EMAIL = 1;
+    const HOW_TO_APPLY_BY_SMS = 2;
+    const HOW_TO_APPLY_BY_POST = 3;
+    
     /**
      * @var integer
      *
@@ -43,6 +54,14 @@ class Job
      * @ORM\Column(name="type", type="smallint")
      */
     private $type;
+    
+    /**
+     * @Vich\UploadableField(mapping="image", fileNameProperty="logo")
+     *
+     * @var File $imageName
+     *
+     */
+    private $imageName;
 
     /**
      * @var string
@@ -124,6 +143,29 @@ class Job
     public function getId()
     {
         return $this->id;
+    }
+    
+    /**
+     * Set imageName
+     *
+     * @param File $imageName
+    
+     */
+    public function setImageName(\Symfony\Component\HttpFoundation\File\File $imageName)
+    {
+        $this->imageName = $imageName;
+    
+        return $this;
+    }
+    
+    /**
+     * Get imageName
+     *
+     * @return File
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
     }
 
     /**
