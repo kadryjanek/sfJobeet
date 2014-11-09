@@ -4,6 +4,7 @@ namespace Bootcamp\JobeetBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -22,7 +23,20 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Bootcamp\JobeetBundle\Entity\Job", mappedBy="user")
+     * 
+     * @var ArrayCollection
+     */
+    protected $jobs;
 
+    public function __construct()
+    {
+        $this->jobs = new ArrayCollection();
+        
+        parent::__construct();
+    }
+    
     /**
      * Get id
      *

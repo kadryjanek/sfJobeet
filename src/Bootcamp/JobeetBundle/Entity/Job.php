@@ -93,7 +93,29 @@ class Job
      */
     private $email;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Bootcamp\JobeetBundle\Entity\User", inversedBy="jobs")
+     * 
+     * @var Bootcamp\JobeetBundle\Entity\User;
+     */
+    protected $user;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Bootcamp\JobeetBundle\Entity\Category", inversedBy="jobs")
+     *
+     * @var Bootcamp\JobeetBundle\Entity\Category;
+     */
+    protected $categories;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    
     /**
      * Get id
      *
@@ -309,5 +331,84 @@ class Job
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Job
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Bootcamp\JobeetBundle\Entity\User $user
+     * @return Job
+     */
+    public function setUser(\Bootcamp\JobeetBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Bootcamp\JobeetBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Add categories
+     *
+     * @param \Bootcamp\JobeetBundle\Entity\Category $categories
+     * @return Job
+     */
+    public function addCategory(\Bootcamp\JobeetBundle\Entity\Category $categories)
+    {
+        $this->categories[] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Remove categories
+     *
+     * @param \Bootcamp\JobeetBundle\Entity\Category $categories
+     */
+    public function removeCategory(\Bootcamp\JobeetBundle\Entity\Category $categories)
+    {
+        $this->categories->removeElement($categories);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }
