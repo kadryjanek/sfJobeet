@@ -27,6 +27,14 @@ class Job
      * @ORM\Column(name="companyName", type="string", length=255)
      */
     private $companyName;
+    
+    /**
+     * @var string
+     *
+     * @Gedmo\Slug(fields={"position", "location"})
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
 
     /**
      * @var integer
@@ -52,14 +60,14 @@ class Job
     /**
      * @var string
      *
-     * @ORM\Column(name="position", type="string", length=255)
+     * @ORM\Column(name="position", type="string", length=100)
      */
     private $position;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="location", type="string", length=255)
+     * @ORM\Column(name="location", type="string", length=155)
      */
     private $location;
 
