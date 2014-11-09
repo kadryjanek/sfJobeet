@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
             new JordiLlonch\Bundle\CrudGeneratorBundle\JordiLlonchCrudGeneratorBundle()
         );
 
